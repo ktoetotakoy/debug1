@@ -7,9 +7,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
     @font-face {
-      font-family: 'SF Handwriting Black';
+      font-family: "Outfit", sans-serif;
       src: url('sf-handwriting-black.ttf') format('truetype');
       font-weight: normal;
       font-style: normal;
@@ -22,7 +22,7 @@
       transition: all 0.3s ease;
     }
     body {
-      font-family: 'Montserrat', sans-serif;
+      font-family: "Outfit", sans-serif;
       position: relative;
       min-height: 97vh;
       overflow: hidden;
@@ -41,8 +41,13 @@
       margin-left: 2px;
       margin-bottom: 5px;
       margin-top: 7px;
+      transition: all 0.5s ease;
+      transform: scale(1.00);
     }
-    
+    .name-icon:hover{
+      transform: scale(1.19);
+      transition: all 0.5s ease;
+    }
     .container {
       position: relative;
       display: flex;
@@ -73,6 +78,11 @@
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
       overflow: hidden;
       z-index: 2;
+      transform-style: preserve-3d;
+      will-change: transform;
+      backface-visibility: hidden;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
     .profile-banner {
@@ -82,7 +92,7 @@
       width: 100%;
       height: 140px;
       border-radius: 15px 15px 0 0; 
-      background-image: url('https://i.pinimg.com/1200x/58/23/9f/58239fe515966d172e2a7667c965867c.jpg'); 
+      background-image: url('https://i.ibb.co/q30RC16V/whysoetude2.jpg'); 
       background-size: cover;
       background-position: center;
       filter: brightness(0.7);
@@ -197,6 +207,7 @@
     }
 
     .achievement {
+      font-family: "Outfit", sans-serif;
       padding: 5px 12px;
       border: 2px solid #fff;
       border-radius: 20px;
@@ -207,11 +218,15 @@
       user-select: none;
       cursor: default;
       transition: background-color 0.3s ease, color 0.3s ease;
+      transform: scale(1.00);
+      transition: all 0.3s ease;
     }
 
     .achievement:hover {
       background-color: rgba(255, 255, 255, 0.15);
       color: #eee;
+      transform: scale(1.07);
+      transition: all 0.3s ease;
     }
 
     .links-row {
@@ -235,10 +250,12 @@
       position: relative;
       text-decoration: none;
       color: #fff;
-      background: rgba(51,51,51,0.8);
+      background: rgba(8, 8, 8, 0.247);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(13.3px);
       padding: 12px 18px;
       border: 2px solid transparent;
-      border-radius: 10px;
       transition: all 0.3s ease;
       overflow: hidden;
       display: inline-flex;
@@ -257,7 +274,10 @@
       bottom: 125%;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(0,0,0,0.75);
+      background: rgba(8, 8, 8, 0.42);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(13.3px);
       color: #fff;
       padding: 5px 8px;
       border-radius: 6px;
@@ -276,7 +296,7 @@
 
     .link:hover, .link:active {
       border-color: #fff;
-      transform: scale(1.04);
+      transform: scale(1.06);
       transition: all 0.5s ease;
     }
    
@@ -378,13 +398,17 @@
       z-index: 3;
       position: relative;
       border-radius: 12px;
+      transition: all 0.5s ease;
     }
-
+    .spotify-widget:hover{
+      transition: all 0.5s ease;
+      transform: scale(1.02);
+    }
   </style>
 </head>
 <body>
   <video autoplay muted loop playsinline id="bg-video">
-    <source src="video.mp4" type="video/mp4" />
+    <source src="video1.mp4" type="video/mp4" />
   </video>
 
   <div class="container">
@@ -395,12 +419,12 @@
       <div class="profile-main">
         <div class="profile-image-section">
           <div class="profile-image">
-            <img src="https://i.pinimg.com/736x/5c/c1/e2/5cc1e2dcfe04b5390626d92e385f7d95.jpg" alt="Profile Image">
+            <img src="https://i.pinimg.com/736x/c4/ad/0b/c4ad0beac086b4d8e27465a4f795ff3f.jpg" alt="Profile Image">
           </div>
           <h1 data-text="debug1">
             <a class="nickname" href="#">debug1</a>
             <a href="#" class="tooltip" data-tooltip="Verified">
-              <img class="name-icon" src="https://i.ibb.co/GfjFx64g/video-from-rawpixel-id-17274080-gif.gif" alt="Verification Icon">
+              <img class="name-icon" src="https://i.gifer.com/33Ho.gif" alt="Verification Icon">
             </a>
           </h1>
         </div>
@@ -442,7 +466,7 @@
 
 
       <div class="spotify-widget">
-        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/3KkXRkHbMCARz0aVfEt68P?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/1sSWeebrHxMLdixWRgs778?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
   </div>
