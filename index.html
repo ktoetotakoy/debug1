@@ -107,10 +107,18 @@
       border-radius: 20px;
       font-size: 0.85rem;
       color: #fff;
-      background: #ffffff1f;
+      background: #ffffff0c;
       white-space: nowrap;
       user-select: none;
       cursor: default;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      transition: all 0.3s ease;
+    }
+
+    .prosmotr:hover {
+      background-color: rgba(255, 255, 255, 0.24);
+      color: #eee;
+      transition: all 0.3s ease;
     }
     .profile-main {
       display: flex;
@@ -168,9 +176,12 @@
       transition: transform 0.6s ease;
       flex-shrink: 0;
       margin-top: -90px;
+      transition: all 0.3s ease;
     }
     .profile-image:hover {
+      transition: all 0.3s ease;
       transform: scale(1.04);
+      box-shadow: 0px 0px 69px -2px rgba(0,0,0,0.75);
     }
     .profile-image img {
       width: 100%;
@@ -239,6 +250,7 @@
       color: #eee;
       transform: scale(1.07);
       transition: all 0.3s ease;
+      box-shadow: 0px 0px 69px -13px rgba(0,0,0,0.75);
     }
 
     .links-row {
@@ -308,8 +320,9 @@
 
     .link:hover, .link:active {
       border-color: #fff;
-      transform: scale(1.06);
+      transform: scale(1.08);
       transition: all 0.5s ease;
+      box-shadow: 0px 0px 69px -22px rgba(0,0,0,1);
     }
    
     @media (max-width:768px) {
@@ -421,22 +434,23 @@
       position: absolute;
       top: 13px;
       right: 10px;
-      z-index: 2;
+      z-index: 10;
     }
   </style>
 </head>
 <body>
   <video autoplay muted loop playsinline id="bg-video">
-    <source src="video.mp4" type="video/mp4" />
+    <source src="video1.mp4" type="video/mp4" />
   </video>
 
   <div class="container">
     <div class="profile-card">
-      <div class="profile-banner">
-        <div class="visits-counter">
+            <div class="visits-counter">
           <span class="prosmotr">👁 <span id="visits">…</span></span>
         </div>
+      <div class="profile-banner">   
       </div>
+
       <div class="profile-main">
         <div class="profile-image-section">
           <div class="profile-image">
