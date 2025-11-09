@@ -1,589 +1,333 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta name='freelancehunt' content='870a1bd4a3b79d4'>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>hxrdbtw</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
-    @font-face {
-      font-family: "Outfit", sans-serif;
-      src: url('sf-handwriting-black.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
-    }
+<meta name='freelancehunt' content='870a1bd4a3b79d4'>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>hxrdbtw</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Outfit", sans-serif;
+  position: relative;
+  min-height: 97vh;
+  overflow: hidden;
+  background: #111;
+}
+.transition { transition: all 0.3s ease; }
+.icon { width: 18px; height: 18px; margin-right: 8px; vertical-align: middle; }
+.name-icon { height: 1.2em; margin: 7px 0 5px 2px; transition: transform 0.5s ease; }
+.name-icon:hover { transform: scale(1.19); }
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  perspective: 1000px;
+  z-index: 1;
+}
+.profile-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(17,17,17,0.5), rgba(17,17,17,0.3));
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 15px;
+  backdrop-filter: blur(11px);
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  width: 500px;
+  max-width: 90%;
+  transition: transform 0.2s ease-out, box-shadow 0.3s ease;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  overflow: visible;
+  z-index: 2;
+  transform-style: preserve-3d;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.profile-banner {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 140px;
+  border-radius: 15px 15px 0 0;
+  background-image: url('https://i.ibb.co/QVJ5zwq/photo-2025-09-06-16-38-07.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.7);
+  box-shadow: inset 0 0 40px rgba(0,0,0,0.6);
+  z-index: 1;
+}
+.prosmotr, .achievement {
+  font-family: "Outfit", sans-serif;
+  padding: 5px 12px;
+  border: 2px solid #fff;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  color: #fff;
+  white-space: nowrap;
+  user-select: none;
+  cursor: default;
+  background: transparent;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.prosmotr { background: #ffffff0c; }
+.prosmotr:hover, .achievement:hover {
+  background-color: rgba(255,255,255,0.24);
+  color: #eee;
+  transform: scale(1.07);
+  box-shadow: 0px 0px 69px -13px rgba(0,0,0,0.75);
+}
+.prosmotr svg { vertical-align: middle; margin-right: 4px; margin-bottom: 2px; height: 16px; fill: white; }
+.profile-main { display: flex; align-items: flex-start; gap: 30px; margin-top: 130px; position: relative; z-index: 5; }
+.profile-image-section { display: flex; flex-direction: column; align-items: center; }
+.profile-image { width: 150px; height: 150px; border-radius: 50%; overflow: hidden; border: 3px solid #fff; margin-top: -90px; transition: transform 0.3s ease; }
+.profile-image:hover { transform: scale(1.04); }
+.profile-image img { width: 100%; height: 100%; object-fit: cover; }
+.profile-image-section h1 {
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.nickname { text-decoration: none; color: white; background-image: url("https://r2.fakecrime.bio/assets/sparkles/white.gif"); padding: 0 4px; transition: all 0.4s ease; }
+.nickname:hover { scale: 1.05; }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      transition: all 0.3s ease;
-    }
-    body {
-      font-family: "Outfit", sans-serif;
-      position: relative;
-      min-height: 97vh;
-      overflow: hidden;
-      background: #111;
-    }
-    .icon {
-      width: 18px;
-      height: 18px;
-      margin-right: 8px;
-      vertical-align: middle;
-    }
-    .name-icon {
-      height: 1.20em;
-      width: auto;
-      vertical-align: middle;
-      margin-left: 2px;
-      margin-bottom: 5px;
-      margin-top: 7px;
-      transition: all 0.5s ease;
-      transform: scale(1.00);
-    }
-    .name-icon:hover{
-      transform: scale(1.19);
-      transition: all 0.5s ease;
-    }
-    .container {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 20px;
-      perspective: 1000px;
-      z-index: 1;
-    }
-    
-    .profile-card {
-      position: relative;
-      background: linear-gradient(135deg, rgba(17,17,17,0.5), rgba(17,17,17,0.3));
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 15px;
-      backdrop-filter: blur(11px);
-      display: flex;
-      flex-direction: column;
-      padding-top: 30px;
-      padding-left: 30px;
-      padding-right: 30px;
-      padding-bottom: 20px;
-      width: 500px;
-      max-width: 90%;
-      transition: transform 0.2s ease-out, box-shadow 0.3s ease;
-      transform: rotateX(0deg) rotateY(0deg) scale(1);
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-      overflow: visible;
-      z-index: 2;
-      transform-style: preserve-3d;
-      will-change: transform;
-      backface-visibility: hidden;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
+.achievements {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  transition: opacity 0.4s ease, max-height 0.4s ease, margin-top 0.4s ease;
+}
 
-    .profile-banner {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 140px;
-      border-radius: 15px 15px 0 0; 
-      background-image: url('https://i.ibb.co/5hxw7yY9/whysoetude4.jpg'); 
-      background-size: cover;
-      background-position: center;
-      filter: brightness(0.7);
-      box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.6);
-      z-index: 1;
-      align-items: end;
-    }
-    .prosmotr{
-      font-family: "Outfit", sans-serif;
-      padding: 5px 12px;
-      border: 2px solid #fff;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      color: #fff;
-      background: #ffffff0c;
-      white-space: nowrap;
-      user-select: none;
-      cursor: default;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      transition: all 0.3s ease;
-    }
-    .prosmotr svg {
-     vertical-align: middle;
-     margin-right: 4px;
-     margin-bottom: 2px;
-     width: auto;
-     height: 16px;
-     fill: white;
-    }
-    .prosmotr:hover {
-      background-color: rgba(255, 255, 255, 0.24);
-      color: #eee;
-      transition: all 0.3s ease;
-    }
-    .profile-main {
-      display: flex;
-      flex-direction: row;
-      align-items: flex-start;
-      gap: 30px;
-      margin-top: 130px;
-      position: relative;
-      z-index: 5;
-    }
+.links-row {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px;
+  border-top: 1px solid rgba(255,255,255,0.3);
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  padding: 15px 0;
+}
+.link {
+  text-decoration: none;
+  color: #fff;
+  background: rgba(8,8,8,0.247);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+  backdrop-filter: blur(13.3px);
+  padding: 12px 18px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  min-width: 110px;
+  position: relative;
+}
+.link:hover { border-color: #fff; transform: scale(1.08); box-shadow: 0px 0px 69px -22px rgba(0,0,0,1); }
 
-    .profile-image-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      flex-shrink: 0;
-    }
+[data-tooltip] { position: relative; cursor: default; }
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  background: rgba(8,8,8,0.9);
+  border-radius: 8px;
+  color: #fff;
+  padding: 5px 8px;
+  white-space: nowrap;
+  font-size: 0.85rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 9999;
+}
+[data-tooltip]:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
 
-    .profile-image-section h1 {
-      margin-top: 10px;
-      font-weight: 600;
-      font-size: 1.6rem;
-      color: #fff;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-family: 'SF Handwriting Black', 'Montserrat', sans-serif;
-    }
+.tooltip[data-tooltip]::after {
+  bottom: auto;
+  top: -24px;
+  transform: translateX(-50%) translateY(-6px);
+}
+[data-tooltip].tooltip:hover::after {
+  transform: translateX(-50%) translateY(0);
+}
 
-    @media (max-width:768px) {
-      .achievements{
-        height: 0px;
-        margin-top: -10px;
-        padding: 0px;
-        visibility: hidden;
-        color: #11111100;
-      } 
-      .profile-info{
-        height: 0px;
-        margin-top: -20px;
-      }
-      .profile-main {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        margin-top: 100px;
-      }
-      .profile-image-section h1 {
-        margin-top: -10px;
-      }
+#bg-video { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; z-index: 0; pointer-events: none; }
+.spotify-widget { width: 100%; max-width: 500px; margin: 20px auto 0; border-radius: 12px; transition: transform 0.5s ease; }
+.spotify-widget:hover { transform: scale(1.02); }
+.visits-counter { position: absolute; top: 13px; right: 10px; z-index: 10; }
 
-    }
+@media (max-width: 768px) {
+  .profile-card { width: 90%; max-width: 400px; padding: 20px; }
+  .profile-main { flex-direction: column; align-items: center; margin-top: 100px; }
+  .profile-image { width: 120px; height: 120px; }
+  .profile-image-section h1 { font-size: 1.8rem; }
 
+  .achievements {
+    opacity: 0;
+    max-height: 0;
+    margin-top: 0;
+    padding: 0;
+    overflow: hidden;
+  }
 
-    .profile-image {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 3px solid #fff;
-      transition: transform 0.6s ease;
-      flex-shrink: 0;
-      margin-top: -90px;
-      transition: all 0.3s ease;
-    }
-    .profile-image:hover {
-      transition: all 0.3s ease;
-      transform: scale(1.04);
-    }
-    .profile-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .profile-info {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      color: #fff;
-      font-family: 'SF Handwriting Black', 'Montserrat', sans-serif;
-    }
-
-    .profile-info h1 {
-      margin-bottom: 10px;
-      font-weight: 600;
-      font-size: 2rem;
-      color: #fff;
-      transition: all 0.5s ease;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .profile-info h1:hover {
-      transform: scale(1.04);
-    }
-    .nickname {
-      text-decoration: none;
-      color: white;
-      background-image: url("https://r2.fakecrime.bio/assets/sparkles/white.gif");
-      padding: 0 4px;
-      transition: all ease 0.4s;
-    }
-    .nickname:hover{
-      scale: 105%;
-      transition: all ease 0.4s;
-    }
-    .achievements {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 15px;
-      margin-bottom: 0;
-      margin-left: 3%;
-    }
-
-    .achievement {
-      font-family: "Outfit", sans-serif;
-      padding: 5px 12px;
-      border: 2px solid #fff;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      color: #fff;
-      background: transparent;
-      white-space: nowrap;
-      user-select: none;
-      cursor: default;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      transform: scale(1.00);
-      transition: all 0.3s ease;
-    }
-
-    .achievement:hover {
-      background-color: rgba(255, 255, 255, 0.15);
-      color: #eee;
-      transform: scale(1.07);
-      transition: all 0.3s ease;
-      box-shadow: 0px 0px 69px -13px rgba(0,0,0,0.75);
-    }
-
-    .links-row {
-      width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      margin-top: 20px;
-      gap: 10px;
-      position: relative;
-      z-index: 5;
-      border-top: 1px solid rgba(255, 255, 255, 0.3);
-      padding-top: 15px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-      padding-bottom: 15px;
-    }
-
-
-    .link {
-      position: relative;
-      text-decoration: none;
-      color: #fff;
-      background: rgba(8, 8, 8, 0.247);
-      border-radius: 16px;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(13.3px);
-      padding: 12px 18px;
-      border: 2px solid transparent;
-      transition: all 0.3s ease;
-      overflow: hidden;
-      display: inline-flex;
-      align-items: center;
-      animation: buttonRock 4s infinite ease-in-out;
-      font-size: 0.95rem;
-      transform: scale(0.98);
-      white-space: nowrap;
-      min-width: 110px;
-      justify-content: center;
-    }
-
-    .link::after {
-      content: attr(data-tooltip);
-      position: absolute;
-      bottom: 125%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(8, 8, 8, 0.42);
-      border-radius: 16px;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-      backdrop-filter: blur(13.3px);
-      color: #fff;
-      padding: 5px 8px;
-      border-radius: 6px;
-      white-space: nowrap;
-      font-size: 0.75rem;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-      z-index: 10;
-    }
-
-    .link:hover::after {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .link:hover, .link:active {
-      border-color: #fff;
-      transform: scale(1.08);
-      transition: all 0.5s ease;
-      box-shadow: 0px 0px 69px -22px rgba(0,0,0,1);
-    }
-   
-    @media (max-width:768px) {
-      .profile-card {
-        width: 90%;
-        max-width: 400px;
-        padding: 20px;
-        animation: slideInUp 0.8s ease-out;
-      }
-      .profile-main {
-        flex-direction: column;
-        align-items: center;
-        margin-top: 100px;
-      }
-      .profile-image {
-        width: 120px;
-        height: 120px;
-        margin-bottom: 15px;
-      }
-      .profile-info h1 {
-        font-size: 1.8rem;
-        width: auto;
-        justify-content: center;
-      }
-      .achievements {
-        justify-content: center;
-      }
-      .links-row {
-        margin-top: 15px;
-        gap: 4px;
-      }
-      .link {
-        font-size: 0.85rem;
-        padding: 10px 16px;
-        min-width: 90px;
-      }
-    }
-
-    .tooltip {
-      position: relative;
-      display: inline-block;
-    }
-
-    .tooltip::after {
-      content: attr(data-tooltip);
-      position: absolute;
-      bottom: 100%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0, 0, 0, 0.85);
-      color: #fff;
-      padding: 8px 11px;
-      border-radius: 6px;
-      white-space: nowrap;
-      font-size: 14px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease, transform 0.3s ease;
-      z-index: 9999;
-    }
-
-    .tooltip:hover::after {
-      opacity: 1;
-      transform: translateX(-50%) translateY(-4px);
-    }
-
-    .tooltip:hover::before {
-      opacity: 1;
-    }
-
-    #bg-video {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-      z-index: 0;
-      pointer-events: none;
-    }
-    .over{
-      color: white;
-      margin-top: 20px;
-      text-align: center;
-    }
-    .about{
-      /*margin-top: 4%;*/
-      /*border-top: 1px solid rgba(255, 255, 255, 0.3);*/
-      padding-top: 15px;
-      text-align: center;
-      color: white;
-    }
-    .spotify-widget {
-      width: 100%;
-      max-width: 500px;
-      margin: 20px auto 0px;
-      box-sizing: border-box;
-      z-index: 3;
-      position: relative;
-      border-radius: 12px;
-      transition: all 0.5s ease;
-    }
-    .spotify-widget:hover{
-      transition: all 0.5s ease;
-      transform: scale(1.02);
-
-    }
-    .visits-counter {
-      position: absolute;
-      top: 13px;
-      right: 10px;
-      z-index: 10;
-    }
-  </style>
+  .link { font-size: 0.85rem; padding: 10px 16px; min-width: 90px; }
+  .links-row {margin-top: -20px;}
+}
+</style>
 </head>
 <body>
-  <video autoplay muted loop playsinline id="bg-video">
-    <source src="video1.mp4" type="video/mp4" />
-  </video>
-
-  <div class="container">
-    <div class="profile-card">
-            <div class="visits-counter">
-              <span class="prosmotr tooltip" data-tooltip="Views">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" class="size-4 fill-theme drop-shadow-theme"><path d="M12.015 7c4.751 0 8.063 3.012 9.504 4.636-1.401 1.837-4.713 5.364-9.504 5.364-4.42 0-7.93-3.536-9.478-5.407 1.493-1.647 4.817-4.593 9.478-4.593zm0-2c-7.569 0-12.015 6.551-12.015 6.551s4.835 7.449 12.015 7.449c7.733 0 11.985-7.449 11.985-7.449s-4.291-6.551-11.985-6.551zm-.015 3c-2.209 0-4 1.792-4 4 0 2.209 1.791 4 4 4s4-1.791 4-4c0-2.208-1.791-4-4-4z"></path></svg>
-                <span id="visits">…</span>
-              </span>
+<video autoplay muted loop playsinline preload="metadata" id="bg-video">
+</video>
+<div class="container">
+  <div class="profile-card">
+    <div class="visits-counter">
+      <span class="prosmotr" data-tooltip="Views">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.015 7c4.751 0 8.063 3.012 9.504 4.636-1.401 1.837-4.713 5.364-9.504 5.364-4.42 0-7.93-3.536-9.478-5.407 1.493-1.647 4.817-4.593 9.478-4.593zm0-2c-7.569 0-12.015 6.551-12.015 6.551s4.835 7.449 12.015 7.449c7.733 0 11.985-7.449 11.985-7.449s-4.291-6.551-11.985-6.551zm-.015 3c-2.209 0-4 1.792-4 4 0 2.209 1.791 4 4 4s4-1.791 4-4c0-2.208-1.791-4-4-4z"></path></svg>
+        <span id="visits">…</span>
+      </span>
+    </div>
+    <div class="profile-banner"></div>
+    <div class="profile-main">
+      <div class="profile-image-section">
+        <div class="profile-image">
+          <img src="https://i.pinimg.com/736x/a9/35/3a/a9353af6583666263d16f98011c18576.jpg" alt="Profile Image">
         </div>
-      <div class="profile-banner">   
+        <h1>
+          <a class="nickname" href="#">hxrdware</a>
+          <a href="#" class="tooltip" data-tooltip="Verified">
+            <img class="name-icon" src="https://i.gifer.com/33Ho.gif" alt="Verification Icon">
+          </a>
+        </h1>
       </div>
-
-      <div class="profile-main">
-        <div class="profile-image-section">
-          <div class="profile-image">
-            <img src="https://i.pinimg.com/736x/c4/ad/0b/c4ad0beac086b4d8e27465a4f795ff3f.jpg" alt="Profile Image">
-          </div>
-          <h1 data-text="debug1">
-            <a class="nickname" href="#">hxrdware</a>
-            <a href="#" class="tooltip" data-tooltip="Verified">
-              <img class="name-icon" src="https://i.gifer.com/33Ho.gif" alt="Verification Icon">
-            </a>
-          </h1>
+      <div class="profile-info">
+        <div class="achievements">
+          <span class="achievement">C# Coder</span>
+          <span class="achievement">UI/UX Designer</span>
+          <span class="achievement">Web-Developer</span>
         </div>
-        <div class="profile-info">
-          <div class="achievements">
-            <span class="achievement">C# Coder</span>
-            <span class="achievement">UI/UX Designer</span>
-            <span class="achievement">Web-Developer</span>
-          </div>
-        </div>
-      </div>
-      <!--<div class="about">
-        <span>Me on:</span>
-      </div>-->
-      <div class="links-row">
-        <a class="link tooltip" data-tooltip="Views" href="https://t.me/kerakkof" target="_blank">
-          <img class="icon" src="https://i.ibb.co/cKVMMXQs/Telegram.png" alt="Telegram Logo">
-          Telegram
-        </a>
-        <a class="link" href="#" target="_blank">
-          <img class="icon" src="https://i.ibb.co/m5Yssj3g/Discord.png" alt="Discord Logo">
-          Discord
-        </a>
-        <a class="link" href="https://github.com/ktoetotakoy" target="_blank">
-          <img class="icon" src="https://i.ibb.co/jkQhPsHv/GitHub.png" alt="GitHub Logo">
-          GitHub
-        </a>
-        <a class="link" href="https://soundcloud.com/ker-akk" target="_blank">
-          <img class="icon" src="https://i.ibb.co/67NB3QBn/Sound-Cloud.png" alt="SoundCloud Logo">
-          SoundCloud
-        </a>
-        <a class="link" href="https://steamcommunity.com/id/hxrdware" target="_blank">
-          <img class="icon" src="https://i.ibb.co/hx9JSfsF/Steam.png" alt="Steam Logo">
-          Steam
-        </a>
-      </div>
-      <div class="spotify-widget">
-        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/1sSWeebrHxMLdixWRgs778?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
+    <div class="links-row">
+      <a class="link" href="https://t.me/kerakkof" target="_blank" data-tooltip="тгшка →">
+        <img class="icon" src="https://i.ibb.co/cKVMMXQs/Telegram.png" alt="Telegram Logo"> Telegram
+      </a>
+      <a class="link" href="https://www.youtube.com/@kerakkof" target="_blank" data-tooltip="ютуб →">
+        <img class="icon" src="https://i.ibb.co/Vpw21kjF/YouTube.png" alt="YouTube Logo"> YouTube
+      </a> 
+      <a class="link" href="https://github.com/ktoetotakoy" target="_blank" data-tooltip="гитхаб →">
+        <img class="icon" src="https://i.ibb.co/jkQhPsHv/GitHub.png" alt="GitHub Logo"> GitHub
+      </a>
+      <a class="link" href="https://soundcloud.com/ker-akk" target="_blank" data-tooltip="клауд →">
+        <img class="icon" src="https://i.ibb.co/67NB3QBn/Sound-Cloud.png" alt="SoundCloud Logo"> SoundCloud
+      </a>
+      <a class="link" href="https://steamcommunity.com/id/hxrdware" target="_blank" data-tooltip="стим →">
+        <img class="icon" src="https://i.ibb.co/hx9JSfsF/Steam.png" alt="Steam Logo"> Steam
+      </a>
+    </div>
+    <div class="spotify-widget">
+      <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/0eXVEb3ZkVtK5k4kaERCbG?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
   </div>
-  <!--скрипт для счётчика просмотров-->
-  <script>
-   const visitsElem = document.getElementById('visits');
+</div>
 
-
-  const alreadyVisited = localStorage.getItem('visited');
-    
-  if (!alreadyVisited) {
+<script>
+function loadVideo(url) {
+  const videoElement = document.getElementById('bg-video');
   
-    fetch('https://abacus.jasoncameron.dev/hit/ktoetotakoy.github.io/debug1')
-      .then(() => localStorage.setItem('visited', 'true'))
-      .catch(() => {});
+  while (videoElement.firstChild) {
+    videoElement.removeChild(videoElement.firstChild);
   }
   
+  const source = document.createElement('source');
+  source.src = url;
+  source.type = 'video/mp4';
   
-  const evtSource = new EventSource('https://abacus.jasoncameron.dev/stream/ktoetotakoy.github.io/debug1');
+  videoElement.appendChild(source);
   
-  evtSource.onmessage = function(event) {
-    try {
-      const data = JSON.parse(event.data);
-      if (data && typeof data.value === 'number') {
-        visitsElem.textContent = data.value;
-      }
-    } catch(e) {
-      console.error('Ошибка парсинга SSE данных', e);
+  videoElement.load();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const videoUrl = 'https://videos.pexels.com/video-files/5419485/5419485-uhd_3840_2160_25fps.mp4';
+  
+  // Загружаем видео
+  loadVideo(videoUrl);
+
+  // Остальной код счетчика посещений и анимации карточки
+  const visitsElem = document.getElementById("visits");
+  if (visitsElem) {
+    if (!localStorage.getItem("visited")) {
+      fetch("https://abacus.jasoncameron.dev/hit/ktoetotakoy.github.io/debug1")
+        .then(() => localStorage.setItem("visited", "true"))
+        .catch(() => {});
     }
-  };
-  
-  evtSource.onerror = function() {
-    console.error('Ошибка соединения SSE');
-    evtSource.close();
-  };
+    const evtSource = new EventSource("https://abacus.jasoncameron.dev/stream/ktoetotakoy.github.io/debug1");
+    evtSource.onmessage = (event) => {
+      try {
+        const data = JSON.parse(event.data);
+        if (data?.value) visitsElem.textContent = data.value;
+      } catch {}
+    };
+    evtSource.onerror = () => evtSource.close();
+    setTimeout(() => evtSource.close(), 300000);
+  }
 
-  </script>
-  
-  
-  
-  
-  
-  <script>
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const card = document.querySelector('.profile-card');
-      if (!card) return;
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const deltaX = x - centerX;
-        const deltaY = y - centerY;
-        const rotateX = (deltaY / centerY) * -10;
-        const rotateY = (deltaX / centerX) * 10;
-        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1)`;
-      });
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
-      });
+  const card = document.querySelector(".profile-card");
+  if (card) {
+    let rotX = 0, rotY = 0, targetX = 0, targetY = 0;
+    const strength = 45, ease = 0.08, spring = 0.12;
+    let hover = false, animating = false;
+    const animate = () => {
+      if (!animating) return;
+      rotX += (targetX - rotX) * ease;
+      rotY += (targetY - rotY) * ease;
+      if (!hover) {
+        targetX *= 1 - spring;
+        targetY *= 1 - spring;
+        if (Math.abs(targetX) < 0.05 && Math.abs(targetY) < 0.05) {
+          animating = false;
+          card.style.transform = "rotateX(0deg) rotateY(0deg)";
+          return;
+        }
+      }
+      card.style.transform = `rotateX(${rotX}deg) rotateY(${rotY}deg)`;
+      requestAnimationFrame(animate);
+    };
+    card.addEventListener("mousemove", (e) => {
+      const rect = card.getBoundingClientRect();
+      const dx = e.clientX - rect.left - rect.width / 2;
+      const dy = e.clientY - rect.top - rect.height / 2;
+      targetX = -(dy / rect.height / 2) * strength;
+      targetY = (dx / rect.width / 2) * strength;
+      hover = true;
+      if (!animating) {
+        animating = true;
+        requestAnimationFrame(animate);
+      }
     });
-
-  </script>
+    card.addEventListener("mouseleave", () => { hover = false; });
+  }
+});
+</script>
 </body>
 </html>
-
-
-
-
