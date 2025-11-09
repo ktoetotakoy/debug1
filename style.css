@@ -332,7 +332,9 @@ body {
 }
 
 .spotify-progress-container,
-.spotify-play-btn {
+.spotify-play-btn,
+.volume-btn,
+.volume-slider {
   pointer-events: auto;
 }
 
@@ -384,20 +386,61 @@ body {
     transform: translateY(0);
   }
   
-  .loading-text {
-    font-family: 'Jura', sans-serif;
-    font-size: 2.5rem;
-    font-weight: 500;
-    margin-bottom: 10px;
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-    letter-spacing: 2px;
+.loading-text {
+  font-family: 'Jura', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-bottom: 10px;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  letter-spacing: 2px;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.hacking-text {
+    font-family: 'Jura';
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
   }
   
-  .loading-subtitle {
+  .hacking-char {
+    display: inline-block;
+    animation: charFlicker 0.1s infinite;
+    color: #ffffff;
+  }
+  
+  .hacking-char.fixing {
+    animation: glitch 0.3s ease-in-out;
+    color: #ffffff;
+  }
+  
+  .hacking-char.fixed {
+    animation: none;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+  }
+
+/* Анимация мерцания символов */
+@keyframes charFlicker {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+  
+  .loading-subtitle2 {
     font-family: 'Jura', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.0rem;
     opacity: 0.8;
-    letter-spacing: 8px;
+    letter-spacing: 6px;
     text-transform: uppercase;
   }
   
@@ -432,6 +475,7 @@ body {
     pointer-events: none;
     opacity: 88%;
     transition: opacity 0.5s ease-in-out;
+    filter: brightness(0.6);
   }
   
   /* Класс для плавного появления видео */
