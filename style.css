@@ -1,11 +1,13 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap');
 body {
-  font-family: "Outfit", sans-serif;
+  font-family: "Jura", sans-serif;
   position: relative;
   min-height: 97vh;
   overflow: hidden;
   background: #111;
 }
+
 .transition { transition: all 0.3s ease; }
 .icon { width: 18px; height: 18px; margin-right: 8px; vertical-align: middle; }
 .name-icon { height: 1.2em; margin: 7px 0 5px 2px; transition: transform 0.5s ease; }
@@ -68,6 +70,7 @@ body {
   transition: all 0.3s ease;
   position: relative;
 }
+.prosmotr {font-family: 'Jura'};
 .prosmotr { background: #ffffff0c; }
 .prosmotr:hover, .achievement:hover {
   background-color: rgba(255,255,255,0.24);
@@ -91,7 +94,7 @@ body {
   align-items: center;
   gap: 6px;
 }
-.nickname { text-decoration: none; color: white; background-image: url("https://r2.fakecrime.bio/assets/sparkles/white.gif"); padding: 0 4px; transition: all 0.4s ease; font-size: 120%;}
+.nickname { text-decoration: none; color: white; background-image: url("https://r2.fakecrime.bio/assets/sparkles/white.gif"); padding: 0 4px; transition: all 0.4s ease; font-size: 120%; font-weight: 800;}
 .nickname:hover { scale: 1.05; }
 .achievements {
   display: flex;
@@ -203,8 +206,8 @@ body {
   background: 
     repeating-linear-gradient(0deg, rgba(0,0,0,0.03), rgba(0,0,0,0.03) 1px, transparent 1px, transparent 3px),
     repeating-linear-gradient(90deg, rgba(0,0,0,0.1), rgba(0,0,0,0.1) 1px, transparent 1px, transparent 3px),
-    radial-gradient(circle at center, rgba(0,255,255,0.1), transparent 50%),
-    radial-gradient(circle at 20% 80%, rgba(255,0,255,0.08), transparent 50%);
+    radial-gradient(circle at center, rgba(0,255,255,0.1), transparent 10%),
+    radial-gradient(circle at 20% 80%, rgba(255,0,255,0.08), transparent 10%);
   filter: blur(0.5px);
   animation: crt-flicker 4s infinite alternate;
 }
@@ -281,7 +284,7 @@ body {
   height: 40px;
 }
 .spotify-time {
-  font-size: 11px;
+  font-size: 15Ыpx;
   color: #b3b3b3;
   min-width: 32px;
   line-height: 40px;
@@ -345,3 +348,105 @@ body {
 .spotify-play-btn * {
   pointer-events: visible;
 }
+
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(13px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .loading-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .loading-content {
+    text-align: center;
+    color: white;
+    transform: translateY(20px);
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .loading-overlay.active .loading-content {
+    transform: translateY(0);
+  }
+  
+  .loading-text {
+    font-family: 'Jura', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    letter-spacing: 2px;
+  }
+  
+  .loading-subtitle {
+    font-family: 'Jura', sans-serif;
+    font-size: 1.2rem;
+    opacity: 0.8;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  
+  .loading-text {
+    animation: pulse 2s infinite;
+  }
+  
+  .container {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .container.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 88%;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  /* Класс для плавного появления видео */
+  #bg-video.fade-in {
+    opacity: 0;
+    animation: videoFadeIn 1s ease-in-out forwards;
+  }
+  
+  @keyframes videoFadeIn {
+    0% {
+      opacity: 0;
+      filter: brightness(0.5);
+    }
+    100% {
+      opacity: 0.88;
+      filter: brightness(1);
+    }
+  }

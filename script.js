@@ -6,6 +6,19 @@ function loadVideo(url) {
     source.type = 'video/mp4';
     videoElement.appendChild(source);
     videoElement.load();
+    
+    return new Promise((resolve) => {
+      videoElement.addEventListener('loadeddata', () => resolve(videoElement), { once: true });
+      videoElement.addEventListener('error', () => resolve(videoElement), { once: true });
+    });
+  }
+  
+  function restartVideo() {
+    const videoElement = document.getElementById('bg-video');
+    if (videoElement) {
+      videoElement.currentTime = 0;
+      videoElement.play().catch(e => console.log('Video play error:', e));
+    }
   }
   
   // Spotify Player functionality
@@ -15,7 +28,7 @@ function loadVideo(url) {
       artist: "beatzbyluc",
       explicit: false,
       cover: "https://i.scdn.co/image/ab67616d00001e0232f462e6cfa4d6a8ada0c3f1",
-      audio: "https://download1335.mediafire.com/nah92dwpultgDrmIbLHf6HcMdM0mhpUEUYAbeD2QAtHRt2WMamIQvJ8NfuO7UjvdS6-DgD0-6ZOs827Lb2TD93CA_6uiCZ0M3dU_3TXmbkSyQQm6gc4LQkLBcF_WIpvFNvvj_Z3KbD7c0QNvEXdu5zUbhUo_gFVuxp42GPwSxx2I/57njwjdbzd8tde6/beatzbyluc_-_cryptic.mp3"
+      audio: "beatzbyluc-cryptic.mp3"
     };
   
     const audio = document.getElementById('audio');
@@ -195,31 +208,73 @@ function loadVideo(url) {
     });
   }
   
-  // Visits counter
-  function initVisitsCounter() {
-    const visitsElem = document.getElementById("visits");
-    if (visitsElem) {
-      if (!localStorage.getItem("visited")) {
-        fetch("https://abacus.jasoncameron.dev/hit/ktoetotakoy.github.io/debug1")
-          .then(() => localStorage.setItem("visited", "true"))
-          .catch(() => {});
-      }
-      const evtSource = new EventSource("https://abacus.jasoncameron.dev/stream/ktoetotakoy.github.io/debug1");
-      evtSource.onmessage = (event) => {
-        try {
-          const data = JSON.parse(event.data);
-          if (data?.value) visitsElem.textContent = data.value;
-        } catch {}
-      };
-      evtSource.onerror = () => evtSource.close();
-      setTimeout(() => evtSource.close(), 300000);
+ // Visits counter
+function initVisitsCounter() {
+  const visitsElem = document.getElementById("visits");
+  if (visitsElem) {
+    if (!localStorage.getItem("visited")) {
+      fetch("https://abacus.jasoncameron.dev/hit/ktoetotakoy.github.io/hxrdware")
+        .then(() => localStorage.setItem("visited", "true"))
+        .catch(() => {});
     }
+    const evtSource = new EventSource("https://abacus.jasoncameron.dev/stream/ktoetotakoy.github.io/hxrdware");
+    evtSource.onmessage = (event) => {
+      try {
+        const data = JSON.parse(event.data);
+        if (data?.value) visitsElem.textContent = data.value;
+      } catch {}
+    };
+    evtSource.onerror = () => evtSource.close();
+    setTimeout(() => evtSource.close(), 300000);
+  }
+}
+  
+function initLoadingOverlay() {
+    const loadingOverlay = document.getElementById('loading-overlay');
+    const container = document.querySelector('.container');
+    const audio = document.getElementById('audio');
+    
+  
+    if (!loadingOverlay) return;
+    
+    loadingOverlay.classList.add('active');
+    
+    loadingOverlay.addEventListener('click', async function() {
+
+      
+      loadingOverlay.classList.remove('active');
+      
+      container.classList.add('visible');
+      
+      restartVideo();
+      
+      setTimeout(() => {
+        if (audio) {
+          audio.play().then(() => {
+            console.log('Трек запущен автоматически');
+          }).catch(error => {
+            console.log('Автозапуск трека не удался:', error);
+          });
+        }
+      }, 500);
+      
+      this.removeEventListener('click', arguments.callee);
+    });
+    
+    document.addEventListener('keydown', function firstKeyPress(e) {
+      if (e.code === 'Space' || e.code === 'Enter' || e.code === 'Escape') {
+        loadingOverlay.click();
+        document.removeEventListener('keydown', firstKeyPress);
+      }
+    });
   }
   
-  // Main initialization
   document.addEventListener("DOMContentLoaded", () => {
     loadVideo('https://api.hitube.io/st-tik/token/eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2MzMwZ2xwNXpzb29idHJjbDVkOWNyMnIweWlpMDh3eDIzb2VlcmVkNWFrc203Z3NreXNnd3JvcWZvOW92NGVtdmZuZ3lramQyam1uMHYzc2h2eGNwejg0OXBuenNtOTg3cGJlcXVwbjMyZTF3OXRyZThqY2V6dzY4YTl1MmFsYTE3NjI3MDU2Nzk2MjEiLCJpYXQiOjE3NjI3MDU2Nzk2MjIsImV4cCI6MTc2Mjc5NTY3OX0.x3ykmz5yRlgCXSDpzHeQvLbvuerbLZWWH14RGr4TvbRr8A0O1LiwsAS9TJ31kwMo3qf_JOWtP3qQf37pyLSu7g?sessionid=hitube.io_1d70kRBt5A_1762705656999&wh=www.hitube.io');
     initVisitsCounter();
     initSpotifyPlayer();
     initTiltEffect();
+    initLoadingOverlay();
   });
+
+  
