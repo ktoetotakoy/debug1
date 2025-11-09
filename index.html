@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta name='freelancehunt' content='870a1bd4a3b79d4'>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>hxrdbtw</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="crt-overlay"></div>
+
+<video autoplay muted loop playsinline preload="metadata" id="bg-video"></video>
+
+<div class="container">
+  <div class="profile-card">
+    <div class="visits-counter">
+      <span class="prosmotr" data-tooltip="Views">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.015 7c4.751 0 8.063 3.012 9.504 4.636-1.401 1.837-4.713 5.364-9.504 5.364-4.42 0-7.93-3.536-9.478-5.407 1.493-1.647 4.817-4.593 9.478-4.593zm0-2c-7.569 0-12.015 6.551-12.015 6.551s4.835 7.449 12.015 7.449c7.733 0 11.985-7.449 11.985-7.449s-4.291-6.551-11.985-6.551zm-.015 3c-2.209 0-4 1.792-4 4 0 2.209 1.791 4 4 4s4-1.791 4-4c0-2.208-1.791-4-4-4z"></path></svg>
+        <span id="visits">…</span>
+      </span>
+    </div>
+    <div class="profile-banner"></div>
+    <div class="profile-main">
+      <div class="profile-image-section">
+        <div class="profile-image">
+          <img src="https://i.pinimg.com/736x/a9/35/3a/a9353af6583666263d16f98011c18576.jpg" alt="Profile Image">
+        </div>
+        <h1>
+          <a class="nickname" href="#">hxrdware</a>
+          <a href="#" class="tooltip" data-tooltip="Verified">
+            <img class="name-icon" src="https://i.gifer.com/3V3X.gif" alt="Verification Icon">
+          </a>
+        </h1>
+      </div>
+      <div class="profile-info">
+        <div class="achievements">
+          <span class="achievement">C# Coder</span>
+          <span class="achievement">UI/UX Designer</span>
+          <span class="achievement">Web-Developer</span>
+        </div>
+      </div>
+    </div>
+    <div class="links-row">
+      <a class="link" href="https://t.me/kerakkof" target="_blank" data-tooltip="тгшка →">
+        <img class="icon" src="https://i.ibb.co/cKVMMXQs/Telegram.png" alt="Telegram Logo"> Telegram
+      </a>
+      <a class="link" href="https://www.youtube.com/@kerakkof" target="_blank" data-tooltip="ютуб →">
+        <img class="icon" src="https://i.ibb.co/Vpw21kjF/YouTube.png" alt="YouTube Logo"> YouTube
+      </a> 
+      <a class="link" href="https://github.com/ktoetotakoy" target="_blank" data-tooltip="гитхаб →">
+        <img class="icon" src="https://i.ibb.co/jkQhPsHv/GitHub.png" alt="GitHub Logo"> GitHub
+      </a>
+      <a class="link" href="https://konect.gg/hxrdware" target="_blank" data-tooltip="коннект →">
+        <img class="icon" src="https://i.ibb.co/jPh3ZXFn/Logo-Konect-Lockup.png" alt="Konect Logo"> Konect
+      </a>
+      <a class="link" href="https://soundcloud.com/ker-akk" target="_blank" data-tooltip="клауд →">
+        <img class="icon" src="https://i.ibb.co/67NB3QBn/Sound-Cloud.png" alt="SoundCloud Logo"> SoundCloud
+      </a>
+      <a class="link" href="https://steamcommunity.com/id/hxrdware" target="_blank" data-tooltip="стим →">
+        <img class="icon" src="https://i.ibb.co/hx9JSfsF/Steam.png" alt="Steam Logo"> Steam
+      </a>
+    </div>
+    
+    <!-- Spotify Widget встроен напрямую -->
+    <div class="spotify-widget" id="spotifyWidget">
+      <div class="spotify-player">
+        <div class="spotify-top">
+          <div class="spotify-cover" id="cover"></div>
+          <div class="spotify-info">
+            <div class="spotify-title" id="title">Project_1(FFM FREESTYLE) +tewiq</div>
+            <div class="spotify-artist" id="artist">
+              <span class="spotify-explicit">E</span> тёмный принц, tewiq
+            </div>
+          </div>
+        </div>
+        <div class="spotify-bottom">
+          <div class="spotify-time" id="currentTime">0:00</div>
+          <div class="spotify-progress-container" id="progressContainer">
+            <div class="spotify-progress-bar" id="progress"></div>
+          </div>
+          <button class="spotify-play-btn" id="playBtn">
+            <svg viewBox="0 0 24 24" id="playIcon">
+              <path d="M8 5.14v13.72a.75.75 0 0 0 1.14.64l11.25-6.86a.75.75 0 0 0 0-1.28L9.14 4.5A.75.75 0 0 0 8 5.14Z"/>
+            </svg>
+            <svg viewBox="0 0 24 24" id="pauseIcon" style="display:none;">
+              <path d="M6.75 5.75h3.5a.75.75 0 0 1 .75.75v11a.75.75 0 0 1-.75.75h-3.5a.75.75 0 0 1-.75-.75v-11a.75.75 0 0 1 .75-.75Zm6.75 0h3.5a.75.75 0 0 1 .75.75v11a.75.75 0 0 1-.75.75h-3.5a.75.75 0 0 1-.75-.75v-11a.75.75 0 0 1 .75-.75Z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <audio id="audio" preload="metadata"></audio>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
