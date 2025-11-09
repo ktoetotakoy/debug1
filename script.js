@@ -15,7 +15,7 @@ function loadVideo(url) {
       artist: "beatzbyluc",
       explicit: false,
       cover: "https://i.scdn.co/image/ab67616d00001e0232f462e6cfa4d6a8ada0c3f1",
-      audio: "https://download1335.mediafire.com/c0sgtkl8w6egXuCgkcBOxFYX_6iBbDVAPf_iTolVbCt-tMm-6zPnxnnW6yvX8s5V9hhzrXxdr-980z7GBCVpoHi2hhszGISbFkpDxasrsSEzRDhaKle9aVg5bvCLkCEKXO4z9hrzvRFjE5t_HHVy6clHHahS0lzzaBMLJElIjGNz/57njwjdbzd8tde6/beatzbyluc_-_cryptic.mp3"
+      audio: "https://download1335.mediafire.com/nah92dwpultgDrmIbLHf6HcMdM0mhpUEUYAbeD2QAtHRt2WMamIQvJ8NfuO7UjvdS6-DgD0-6ZOs827Lb2TD93CA_6uiCZ0M3dU_3TXmbkSyQQm6gc4LQkLBcF_WIpvFNvvj_Z3KbD7c0QNvEXdu5zUbhUo_gFVuxp42GPwSxx2I/57njwjdbzd8tde6/beatzbyluc_-_cryptic.mp3"
     };
   
     const audio = document.getElementById('audio');
