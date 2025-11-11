@@ -271,7 +271,7 @@ function initLoadingOverlay() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  loadVideo('https://api.hitube.io/st-tik/token/eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ2MzMwZ2xwNXpzb29idHJjbDVkOWNyMnIweWlpMDh3eDIzb2VlcmVkNWFrc203Z3NreXNnd3JvcWZvOW92NGVtdmZuZ3lramQyam1uMHYzc2h2eGNwejg0OXBuenNtOTg3cGJlcXVwbjMyZTF3OXRyZThqY2V6dzY4YTl1MmFsYTE3NjI3MDU2Nzk2MjEiLCJpYXQiOjE3NjI3MDU2Nzk2MjIsImV4cCI6MTc2Mjc5NTY3OX0.x3ykmz5yRlgCXSDpzHeQvLbvuerbLZWWH14RGr4TvbRr8A0O1LiwsAS9TJ31kwMo3qf_JOWtP3qQf37pyLSu7g?sessionid=hitube.io_1d70kRBt5A_1762705656999&wh=www.hitube.io');
+  loadVideo('w6ylg6.mp4');
   initVisitsCounter();
   initSpotifyPlayer();
   initTiltEffect();
