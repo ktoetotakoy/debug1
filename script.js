@@ -24,11 +24,11 @@ function restartVideo() {
 // Spotify Player functionality
 function initSpotifyPlayer() {
   const TRACK = {
-    title: "cryptic",
-    artist: "beatzbyluc",
-    explicit: false,
-    cover: "https://i.scdn.co/image/ab67616d00001e0232f462e6cfa4d6a8ada0c3f1",
-    audio: "beatzbyluc-cryptic.mp3"
+    title: "who was",
+    artist: "Wido",
+    explicit: true,
+    cover: "https://images.genius.com/20fe3a39058a49abae4eadea4ee86e5a.1000x1000x1.png",
+    audio: "whowas.mp3"
   };
 
   const audio = document.getElementById('audio');
