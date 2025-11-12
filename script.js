@@ -134,7 +134,6 @@ function initSpotifyPlayer() {
   });
 }
 
-// 3D Tilt functionality
 function initTiltEffect() {
   const card = document.querySelector(".profile-card");
   if (!card) return;
@@ -271,87 +270,12 @@ function initLoadingOverlay() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  loadVideo('w6ylg6.mp4');
+  loadVideo('270940_small.mp4');
   initVisitsCounter();
   initSpotifyPlayer();
   initTiltEffect();
   initLoadingOverlay();
 });
-
-function initPreciseHackingAnimation() {
-    const loadingText = document.querySelector('.loading-text');
-    if (!loadingText) return;
-  
-    const originalText = 'hxrdware';
-    const hackerChars = '∑∏∂∫∇∆√∞≈≠≤≥÷×±¬∧∨⊕⊗•∘°πτφθωαβγδϵζηξλμν';
-    
-    loadingText.setAttribute('data-original', originalText);
-    loadingText.classList.add('hacking-text');
-    
-    let html = '';
-    for (let i = 0; i < originalText.length; i++) {
-      const originalChar = originalText[i];
-      const randomChar = originalChar === ' ' ? ' ' : hackerChars[Math.floor(Math.random() * hackerChars.length)];
-      
-      html += `<span class="hacking-char" data-index="${i}" data-original="${originalChar}">${randomChar}</span>`;
-    }
-    
-    loadingText.innerHTML = html;
-    
-    startPreciseAnimation();
-  }
-  
-  function startPreciseAnimation() {
-    const chars = document.querySelectorAll('.hacking-char');
-    const hackerChars = '∑∏∂∫∇∆√∞≈≠≤≥÷×±¬∧∨⊕⊗•∘°πτφθωαβγδϵζηξλμν';
-    
-    let phase1Interval = setInterval(() => {
-      chars.forEach(char => {
-        const originalChar = char.getAttribute('data-original');
-        if (originalChar !== ' ' && !char.classList.contains('fixed')) {
-          const randomChar = hackerChars[Math.floor(Math.random() * hackerChars.length)];
-          char.textContent = randomChar;
-        }
-      });
-    }, 80);
-    
-    setTimeout(() => {
-      clearInterval(phase1Interval);
-      
-      chars.forEach((char, index) => {
-        setTimeout(() => {
-          const originalChar = char.getAttribute('data-original');
-
-          if (originalChar === ' ') {
-            char.classList.add('fixed');
-            return;
-          }
-
-          let step = 0;
-          const steps = 3;
-          
-          const stepInterval = setInterval(() => {
-            if (step < steps) {
-              const randomChar = hackerChars[Math.floor(Math.random() * hackerChars.length)];
-              char.textContent = randomChar;
-              step++;
-            } else {
-              clearInterval(stepInterval);
-              char.textContent = originalChar;
-              char.classList.add('fixed');
-
-              if (index === chars.length - 1) {
-                setTimeout(() => {
-                  document.querySelector('.loading-text').classList.remove('hacking-text');
-                }, 300);
-              }
-            }
-          }, 60);
-        }, index * 150);
-      });
-    }, 1200);
-  }
-
 
   function initTabTitleWithCursor() {
     const originalTitle = 'hxrdware';
